@@ -56,7 +56,9 @@
     padding: 15px 10px;
     border-radius: 100%;
   }
-
+.card-text{
+    margin-left: 5%;
+}
   /* Styles pour les étoiles et le texte de notation */
 .rating {
     font-size: 24px; /* Taille des étoiles */
@@ -68,17 +70,29 @@
   }
   
   .rating-text {
-    color: transparent; /* Texte transparent */
+    padding-left: 2%;
+    font-size: 15px;
+    color: rgba(10, 10, 10, 0.541); /* Texte transparent */
   }
   /* Style pour la time-box */
 .time-box {
     display: flex;
     justify-content: space-between;
     width: auto; /* Ajuster la largeur selon les besoins */
-    border: 1px solid black; /* Bordure */
-    margin: 2%;
+    border: 1px solid rgba(0, 0, 0, 0.26); /* Bordure */
+    margin-right: 5%;
+    margin-bottom: 5%;
   }
-  
+  .lorem{
+    text-align: justify;
+    margin-right: 5%;
+    color: rgba(0, 0, 0, 0.637);
+  }
+  .prix{
+    font-size: 25px;
+    color: #2600ff;
+    font-weight: 900;
+  }
   /* Style pour chaque partie de la time-box */
   .time-part {
     width: 24%; /* Pour diviser en 4 parties */
@@ -94,5 +108,8 @@
   /* Style pour les textes en-dessous des chiffres */
   .time-part p {
     margin: 0; /* Supprimer les marges */
+  }
+  .days{
+    font-weight: 900;
   }
   
