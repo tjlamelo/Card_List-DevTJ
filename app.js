@@ -1,37 +1,42 @@
 class InfiniteClock {
     constructor() {
       this.dayCount = 430; // Initialisation du délai (jour)
-      this.updateTime(); // Mettre à jour l'heure lors de la création de l'instance
+      this.hour = 23;
+      this.minute = 59;
+      this.second = 59;
       this.updateClock(); // Mettre à jour l'heure chaque seconde
       setInterval(this.updateClock.bind(this), 1000);
     }
   
-    updateTime() {
-      let dayInfinite = this.dayCount - 1; // Décrémenter le délai chaque seconde
-      let hour = 0;
-      let minute = 0;
-      let second = 0;
+    updateClock() {
+      // Mettre à jour les éléments HTML avec les nouvelles valeurs
+      document.getElementById('dayInfinite').textContent = this.dayCount;
+      document.getElementById('hour').textContent = this.formatTime(this.hour);
+      document.getElementById('minute').textContent = this.formatTime(this.minute);
+      document.getElementById('second').textContent = this.formatTime(this.second);
   
-      // Mettre à jour les valeurs d'heure, de minute et de seconde si nécessaire
-      if (dayInfinite < 0) {
-        dayInfinite = 0; // Empêcher le délai d'être négatif
-        clearInterval(this.timer); // Arrêter le compte à rebours une fois que le délai est atteint
+      // Décrémenter le temps
+      this.second--;
+      if (this.second < 0) {
+        this.second = 59;
+        this.minute--;
+        if (this.minute < 0) {
+          this.minute = 59;
+          this.hour--;
+          if (this.hour < 0) {
+            this.hour = 23;
+            this.dayCount--;
+            if (this.dayCount <= 0) {
+              clearInterval(this.timer);
+            }
+          }
+        }
       }
   
-      // Mettre à jour les éléments HTML avec les nouvelles valeurs
-      document.getElementById('dayInfinite').textContent = dayInfinite;
-      document.getElementById('hour').textContent = this.formatTime(hour);
-      document.getElementById('minute').textContent = this.formatTime(minute);
-      document.getElementById('second').textContent = this.formatTime(second);
-  
-      // Mettre à jour le délai actuel
-      this.dayCount = dayInfinite;
-    }
-  
-    updateClock() {
-      this.timer = setInterval(() => {
-        this.updateTime();
-      }, 1000);
+      // Si l'heure est 00:00:00, décrémenter le jour
+      if (this.hour === 0 && this.minute === 0 && this.second === 0) {
+        this.dayCount--;
+      }
     }
   
     formatTime(time) {
