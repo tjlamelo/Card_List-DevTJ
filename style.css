@@ -1,0 +1,98 @@
+.card {
+    position: relative;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px auto;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+    position: relative;
+  }
+  .card:hover img {
+    transform: scale(1.1);
+  }
+  .add-to-cart-btn {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: bottom 0.3s, opacity 0.3s;
+    display: flex;
+    align-items: center;
+  }
+ 
+  .card:hover .add-to-cart-btn {
+    bottom: 70%;
+    opacity: 1;
+  }
+  .cart-icon {
+    width: 20px;
+    font-size: 20px;
+    margin-right: 5px;
+  }
+  .sticker {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 100%;
+  }
+
+  /* Styles pour les étoiles et le texte de notation */
+.rating {
+    font-size: 24px; /* Taille des étoiles */
+  }
+  
+  .star {
+    color: gold; /* Couleur jaune pour les étoiles */
+    margin-right: -5px; /* Espacement horizontal entre les étoiles */
+  }
+  
+  .rating-text {
+    color: transparent; /* Texte transparent */
+  }
+  /* Style pour la time-box */
+.time-box {
+    display: flex;
+    justify-content: space-between;
+    width: auto; /* Ajuster la largeur selon les besoins */
+    border: 1px solid black; /* Bordure */
+    margin: 2%;
+  }
+  
+  /* Style pour chaque partie de la time-box */
+  .time-part {
+    width: 24%; /* Pour diviser en 4 parties */
+    padding: 10px; /* Espacement intérieur */
+    text-align: center; /* Alignement du texte au centre */
+  }
+  
+  /* Style pour les spans des chiffres */
+  .time-part span {
+    font-size: 24px; /* Taille des chiffres */
+  }
+  
+  /* Style pour les textes en-dessous des chiffres */
+  .time-part p {
+    margin: 0; /* Supprimer les marges */
+  }
+  
